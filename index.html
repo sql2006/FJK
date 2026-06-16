@@ -1,13 +1,113 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fjk</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百变小范</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .page-container {
+            background-image: url('https://aka.doubaocdn.com/s/Kfry1wc1t0');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        .image-row {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .item-title {
+            text-align: center;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .image-item img {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+        .btn{
+            width: 130px;
+            height: 40px;
+            font-size: 18px;
+            background-color: #ffc9c9;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        h1{
+            background-color: #ffc9c9;
+            padding: 50px 30px;
+            margin-top: 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="page-container">
+            <h1>百变小范</h1>
+            
+            <button class="btn" @click="flag1 = !flag1">大中小范</button>
+            <div class="image-row" v-if="flag1">
+                <div class="image-item">
+                    <h3 class="item-title">小小宝宝范</h3>
+                    <img src="src/assets/bb.png">
+                </div>
+                <div class="image-item">
+                    <h3 class="item-title">小宝宝范</h3>
+                    <img src="src/assets/18bb.png">
+                </div>
+                <div class="image-item">
+                    <h3 class="item-title">大宝宝范</h3>
+                    <img src="src/assets/1.png">
+                </div>
+            </div>
+
+            <button class="btn" @click="flag2 = !flag2">小狗小范</button>
+            <div class="image-row" v-if="flag2">
+                <div class="image-item">
+                    <h3 class="item-title">小狗耍赖</h3>
+                    <img src="src/assets/wlnqn.png">
+                </div>
+                <div class="image-item">
+                    <h3 class="item-title">小狗卖萌</h3>
+                    <img src="src/assets/cute.png">
+                </div>
+                <div class="image-item">
+                    <h3 class="item-title">小狗小气</h3>
+                    <img src="src/assets/find.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue
+        createApp({
+            setup() {
+                const flag1 = ref(false)
+                const flag2 = ref(false)
+                return { flag1, flag2 }
+            }
+        }).mount('#app')
+    </script>
+</body>
 </html>
